@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script defer src="face-api.min.js"></script>
+    <script defer src="./main.js"></script>
+    <title>High Study Accesibility</title>
+    <link rel="stylesheet" href="style.css">
+  <body>
+    <aside v-show="showAside">
+      <div class="imgContainer" @click="!showAside" >
+        <img src="/static/logo.png" alt="" srcset="">
+      </div>
+      <ul class="data">
+        <li>ID: 182610-1</li>
+        <li id="date">Fecha: 29/04/2021</li>
+        <li id="hour">Hora: 4:43</li>
+        <li id="temp">Temperatura: 36.7</li>
+      </ul>
+    </aside>
+    <div class="cont">
+      <h2>Servicios</h2>
+      <div class="divider"></div>
+      <div class="links">
+        <a href="./report.html">Consultar Reportes</a>
+        <a href="./shop.html">Comprar</a>
+      </div>
+    </div>
+    <video src="" id="video" width="720" height="560" autoplay muted></video>
+    <script>
+    </script>
+  </body>
+</html>

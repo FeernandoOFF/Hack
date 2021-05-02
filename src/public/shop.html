@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>HighStudy Accesibility | Shop</title>
+    <style>
+      #btn {
+        position: absolute;
+        top: 25%;
+        right: 15%;
+      }
+    </style>
+  </head>
+  <body>
+    <aside v-show="showAside">
+      <div class="imgContainer" @click="!showAside">
+        <img src="/static/logo.png" alt="" srcset="" />
+      </div>
+      <ul class="data">
+        <li>ID: 182610-1</li>
+        <li id="date">Fecha: 29/04/2021</li>
+        <li id="hour">Hora: 4:43</li>
+        <li id="temp">Importe: 30</li>
+      </ul>
+    </aside>
+    <div class="cont">
+      <h2>Servicios</h2>
+      <div class="divider"></div>
+      <div class="links">
+        <a href="./index.html">Inicio</a>
+        <a href="./report.html">Consultar Reportes</a>
+        <a href="./shop.html">Comprar</a>
+      </div>
+    </div>
+    <div id="btn">Comprar</div>
+  </body>
+  <script>
+    const bt = document.getElementById('btn');
+    bt.addEventListener('click', async () => {
+      fetch('http://119.8.2.130:3000/cobro', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: JSON.stringify({
+          id: '182610-1',
+          importe: 30,
+        }),
+      })
+        .then((result) => result.json())
+        .then((data) => {
+          console.log(data);
+          alert(data.data);
+        });
+    });
+  </script>
+</html>

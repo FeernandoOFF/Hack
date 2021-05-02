@@ -1,0 +1,31 @@
+{
+  "name": "highstudyaccesibility",
+  "version": "1.0.0",
+  "description": "A hackaton Project",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "nodemon src/server.js",
+    "build": "node src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FeernandoOFF/HighStudyAccesibility.git"
+  },
+  "keywords": [
+    "face-detection"
+  ],
+  "author": "Fernando Obregon <ferobregon03@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FeernandoOFF/HighStudyAccesibility/issues"
+  },
+  "homepage": "https://github.com/FeernandoOFF/HighStudyAccesibility#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.7",
+    "path": "^0.12.7"
+  }
+}

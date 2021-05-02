@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>High Study Accessibility | Reportes</title>
+  </head>
+  <body>
+    <aside v-show="showAside">
+      <div class="imgContainer" @click="!showAside">
+        <img src="/static/logo.png" alt="" srcset="" />
+      </div>
+      <ul class="data">
+        <li>ID: 182610-1</li>
+        <li id="date">Fecha: 29/04/2021</li>
+        <li id="hour">Hora: 4:43</li>
+        <li id="temp">Temperatura: 36.7</li>
+      </ul>
+    </aside>
+    <div class="cont">
+      <h2>Servicios</h2>
+      <div class="divider"></div>
+      <div class="links">
+        <a href="./index.html">Inicio</a>
+        <a href="./report.html">Consultar Reportes</a>
+        <a href="./shop.html">Comprar</a>
+      </div>
+    </div>
+    <div class="table" id="table">
+      <div class="row" id="row">
+        <button id="btn">click</button>
+      </div>
+    </div>
+  </body>
+  <script>
+    let row = document.getElementById('row');
+    let table = document.getElementById('table');
+    document.querySelector('#btn').addEventListener('click', async () => {
+      fetch('http://119.8.2.130:3000/report', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: JSON.stringify({
+          date: '2023-04-28',
+          hour: '10:00:20',
+        }),
+      })
+        .then((data) => data.json())
+        .then((res) => {
+          alert('Consultado... Reporte generado');
+          for (let i = 0; i < res.data.length; i++) {
+            let ee = document.createElement('div');
+            ee.classList.add('row');
+            ee.innerHTML = res.data[i].Id;
+            table.appendChild(ee);
+          }
+        });
+    });
+  </script>
+</html>
